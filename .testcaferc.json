@@ -1,0 +1,22 @@
+{
+    "reporter": [
+        {
+            "name": "spec"
+        },
+        {
+            "name": "xunit",
+            "output": "reports/test-results/report.xml"
+        },
+        {
+            "name": "allure"
+        },
+        {
+            "name": "slack-custom"
+        }
+    ],
+    "screenshots": {
+        "takeOnFails": true,
+        "path": "artifacts/screenshots"
+    },
+    "browserInitTimeout": 180000
+}

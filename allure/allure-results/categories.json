@@ -1,0 +1,1 @@
+[{"name":"Ignored tests","matchedStatuses":["skipped"]},{"name":"Product defects","matchedStatuses":["failed"],"messageRegex":".*Assertion failed.*"},{"name":"Test defects","matchedStatuses":["failed"]},{"name":"Warnings","matchedStatuses":["passed"],"messageRegex":".*Warning.*"},{"name":"Flaky tests","matchedStatuses":["passed","failed"],"messageRegex":".*Flaky.*"}]
