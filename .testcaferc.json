@@ -1,14 +1,11 @@
 {
     "reporter": [
         {
-            "name": "spec"
-        },
-        {
             "name": "xunit",
             "output": "reports/test-results/report.xml"
         },
         {
-            "name": "allure"
+            "name": "spec"
         },
         {
             "name": "slack-custom"
@@ -18,5 +15,8 @@
         "takeOnFails": true,
         "path": "artifacts/screenshots"
     },
-    "browserInitTimeout": 180000
+    "browserInitTimeout": 180000,
+    "assertionTimeout": 20000,
+    "pageLoadTimeout": 15000,
+    "selectorTimeout ": 15000
 }

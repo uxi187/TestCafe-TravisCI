@@ -26,4 +26,6 @@ jobs:
     - script: npm run tests:chrome
       name: "Unit Tests 2" 
     - script: npm run tests:chrome
-      name: "Unit Tests 3" 
+      name: "Unit Tests 3"
+    - stage: Check directories
+      script: dir
