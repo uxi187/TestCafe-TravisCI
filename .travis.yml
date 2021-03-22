@@ -22,8 +22,5 @@ jobs:
     # but we can pass group name via environment variable to Cypress test runner
     - stage: test
       <<: *defaults
-    # run tests in parallel by including several test jobs with same name variable
-    - stage: test
       <<: *defaults
-    - stage: test
       <<: *defaults
