@@ -11,16 +11,16 @@ before_script:
 install:
 - npm ci
 
-defaults: &defaults
-  script:
-    #   ## print all Travis environment variables for debugging
-    - npm run tests:chrome
+# defaults: &defaults
+#   script:
+#     #   ## print all Travis environment variables for debugging
+#     - npm run tests:chrome
 
 jobs:
   include:
     # we have multiple jobs to execute using just a single stage
     # but we can pass group name via environment variable to Cypress test runner
     - stage: test
-      <<: *defaults
-      <<: *defaults
-      <<: *defaults
+      script: npm run tests:chrome
+      script: npm run tests:chrome
+      script: npm run tests:chrome
