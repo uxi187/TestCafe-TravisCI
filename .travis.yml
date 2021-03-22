@@ -4,12 +4,27 @@ node_js:
 
 os:
   - windows
-  
+
 before_script:
 - choco install googlechrome --ignore-checksums
 
 install:
 - npm ci
 
-script:
-- npm run tests:chrome
+defaults: &defaults
+  script:
+    #   ## print all Travis environment variables for debugging
+    - $(npm bin)/print-env TRAVIS
+    - npm run tests:chrome
+
+jobs:
+  include:
+    # we have multiple jobs to execute using just a single stage
+    # but we can pass group name via environment variable to Cypress test runner
+    - stage: test
+      <<: *defaults
+    # run tests in parallel by including several test jobs with same name variable
+    - stage: test
+      <<: *defaults
+    - stage: test
+      <<: *defaults
