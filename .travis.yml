@@ -8,16 +8,14 @@ os:
 before_script:
 - choco install googlechrome --ignore-checksums
 
+install:
+- npm ci
 
-
-- &smoke
-  stage: smoke
-  install: npm ci
-  script:
-    - npm run tests:chrome
-
-- <<: *smoke
-
-- <<: *smoke
-
-- <<: *smoke
+jobs:
+  include:
+    # we have multiple jobs to execute using just a single stage
+    # but we can pass group name via environment variable to Cypress test runner
+    - stage: test
+      name: "Unit Tests 1" 
+       script: npx testcafe chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev
+      script: npx testcafe chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev
