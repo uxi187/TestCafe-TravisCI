@@ -15,8 +15,6 @@ install:
   stage: smoke
   script:
     - npm run tests:chrome
-  cache:
-    npm: true
 
 - <<: *smoke
 
