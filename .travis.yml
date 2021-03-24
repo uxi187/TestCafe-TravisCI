@@ -11,18 +11,17 @@ before_script:
 install:
 - npm ci
 
-# defaults: &defaults
-#   script:
-#     #   ## print all Travis environment variables for debugging
-#     - npm run tests:chrome
+- &smoke
+  stage: smoke
+  script:
+    - npm run tests:chrome
+  cache:
+    directories:
+      - ~/.npm
+      - node_modules
 
-jobs:
-  include:
-    # we have multiple jobs to execute using just a single stage
-    # but we can pass group name via environment variable to Cypress test runner
-    - stage: test
-      name: "Unit Tests 1" 
-      script: npm run tests:chrome
-    - stage: test
-      name: "Unit Tests 2" 
-      script: npm run tests:chrome
+- <<: *smoke
+
+- <<: *smoke
+
+- <<: *smoke
