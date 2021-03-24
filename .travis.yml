@@ -8,11 +8,11 @@ os:
 before_script:
 - choco install googlechrome --ignore-checksums
 
-install:
-- npm ci
+
 
 - &smoke
   stage: smoke
+  install: npm ci
   script:
     - npm run tests:chrome
 
