@@ -16,9 +16,7 @@ install:
   script:
     - npm run tests:chrome
   cache:
-    directories:
-      - ~/.npm
-      - node_modules
+    npm: true
 
 - <<: *smoke
 
