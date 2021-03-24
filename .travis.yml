@@ -17,5 +17,5 @@ jobs:
     # but we can pass group name via environment variable to Cypress test runner
     - stage: test
       name: "Unit Tests 1" 
-       script: npx testcafe chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev
+      script: npx testcafe chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev
       script: npx testcafe chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev
