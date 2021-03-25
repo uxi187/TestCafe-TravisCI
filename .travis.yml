@@ -12,11 +12,11 @@ install:
 - npm ci
 
 script:
-  - |
-  npx testcafe chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev &
-  npx testcafe chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev &
-  npx testcafe chrome ./tests/parallel2/test3.spec.js --skip-js-errors --env=dev &
-  npx testcafe chrome ./tests/parallel2/test4.spec.js --skip-js-errors --env=dev
+  - | -
+      npx testcafe chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev &
+      npx testcafe chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev &
+      npx testcafe chrome ./tests/parallel2/test3.spec.js --skip-js-errors --env=dev &
+      npx testcafe chrome ./tests/parallel2/test4.spec.js --skip-js-errors --env=dev
 
 
 # jobs:
