@@ -5,14 +5,16 @@ jobs:
   test:
     name: Run TestCafe Tests
     runs-on: windows-latest
+    strategy:
+      matrix:
+        test-file:
+          - ./tests/parallel/test1.spec.js
+          - ./tests/parallel/test2.spec.js
     steps:
       - name: Check out the repository
         uses: actions/checkout@v1
-      - name: Run tests 1
+        run: npm ci
+      - name: Run tests
         uses: DevExpress/testcafe-action@latest
         with:
-            args: "chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev"
-      - name: Run tests 2
-        uses: DevExpress/testcafe-action@latest
-        with:
-            args: "chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev"
+            args: "chrome ${{ matrix['test-file'] }} --skip-js-errors --env=dev"
