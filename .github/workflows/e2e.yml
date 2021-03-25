@@ -8,7 +8,11 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v1
-      - name: Run tests
+      - name: Run tests 1
         uses: DevExpress/testcafe-action@latest
         with:
             args: "chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev"
+      - name: Run tests 2
+        uses: DevExpress/testcafe-action@latest
+        with:
+            args: "chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev"
