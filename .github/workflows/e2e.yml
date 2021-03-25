@@ -8,8 +8,8 @@ jobs:
     strategy:
         matrix:
           test-file:
-            - ./tests/parallel/test1.spec.js
-            - ./tests/parallel/test2.spec.js
+            - ./tests/parallel/*.spec.js
+            - ./tests/parallel2/*.spec.js
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
