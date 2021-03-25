@@ -13,7 +13,6 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
-        run: npm ci
       - name: Run tests
         uses: DevExpress/testcafe-action@latest
         with:
