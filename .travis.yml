@@ -11,14 +11,21 @@ before_script:
 install:
 - npm ci
 
-jobs:
-  include:
-    # we have multiple jobs to execute using just a single stage
-    # but we can pass group name via environment variable to Cypress test runner
-    - stage: test
-      name: "Unit Tests 1" 
-      script: |
-      npx testcafe chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev & 
-      npx testcafe chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev &
-      npx testcafe chrome ./tests/parallel2/test3.spec.js --skip-js-errors --env=dev & 
-      npx testcafe chrome ./tests/parallel2/test4.spec.js --skip-js-errors --env=dev
+script:
+  - npx testcafe chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev
+  - npx testcafe chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev
+  - npx testcafe chrome ./tests/parallel2/test3.spec.js --skip-js-errors --env=dev
+  - npx testcafe chrome ./tests/parallel2/test4.spec.js --skip-js-errors --env=dev
+
+
+# jobs:
+#   include:
+#     # we have multiple jobs to execute using just a single stage
+#     # but we can pass group name via environment variable to Cypress test runner
+#     - stage: test
+#       name: "Unit Tests 1" 
+#       script: |
+#       npx testcafe chrome ./tests/parallel/test1.spec.js --skip-js-errors --env=dev & 
+#       npx testcafe chrome ./tests/parallel/test2.spec.js --skip-js-errors --env=dev &
+#       npx testcafe chrome ./tests/parallel2/test3.spec.js --skip-js-errors --env=dev & 
+#       npx testcafe chrome ./tests/parallel2/test4.spec.js --skip-js-errors --env=dev
